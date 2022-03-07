@@ -21,13 +21,7 @@ class Game{
 		gameFieldElement.appendChild(fieldElement);
 		for(let i=0; i < size; i++) {
 			for(let j=0; j < size; j++){
-				let cellElement = document.createElement('div');
-				cellElement.className = 'cell';
-				if(Math.random() > 0.8){
-					cellElement.innerHTML = Math.random() > 0.5? 4 : 2;
-				}
-
-				fieldElement.appendChild(cellElement);
+				new Cell(fieldElement);
 			}
 		}
 	}
