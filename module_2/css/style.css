@@ -1,0 +1,51 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html, body{
+	width: 100%;
+	height: 100%;
+}
+.game{
+	margin: 0 auto;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.header__title{
+	font-size: 6vmin;
+	font-weight: bold;
+	color:rgb(25, 73, 57);
+}
+.header{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 20vmin;
+	width: 85vmin;
+	background-color: bisque;
+}
+.field{
+	height: 80vmin;
+	width: 85vmin;
+	background-color:bisque;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 7px;
+}
+.cell{
+	height: 15vmin;
+	width: 15vmin;
+	background-color:rgb(90, 177, 128);	
+	border: 2px solid rgb(47, 116, 81);
+	border-radius: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 8vmin;
+}
