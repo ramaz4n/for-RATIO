@@ -47,5 +47,6 @@ html, body{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 8vmin;
+	font-size: 7vmin;
+	color: white;
 }
