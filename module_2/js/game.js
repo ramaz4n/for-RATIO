@@ -6,16 +6,16 @@ class Game{
 		gameFieldElement.className = 'game';
 		parentElement.appendChild(gameFieldElement);
 
-		let headerElement = document.createElement('div');
-		headerElement.className = 'header';
-		gameFieldElement.appendChild(headerElement);
+		this.headerElement = document.createElement('div');
+		this.headerElement.className = 'header';
+		gameFieldElement.appendChild(this.headerElement);
 
-		let headerTitle = document.createElement('p');
-		headerTitle.className = 'header__title';
-		headerElement.appendChild(headerTitle);
+		this.headerTitle = document.createElement('p');
+		this.headerTitle.className = 'header__title';
+		this.headerElement.appendChild(this.headerTitle);
 
 		this.rating = 0;
-		headerTitle.innerHTML = 'Score: ' + this.rating;
+		
 
 		let fieldElement = document.createElement('div');
 		fieldElement.className = 'field';
@@ -26,11 +26,10 @@ class Game{
 		for(let i=0; i < size; i++) {
 			this.field[i] = [];
 			for(let j=0; j < size; j++){
-				this.field[i][j] = new Cell(fieldElement);
+				this.field[i][j] = new Cell(fieldElement, this);
 			}
 		}
-
-		window.onkeyup = function(e) {
+		window.addEventListener('keyup',function(e) { 
 			switch(e.keyCode){
 				case 38:
 					this.moveUp();
@@ -45,9 +44,21 @@ class Game{
 					this.moveRight();
 					break;
 			}
-		}.bind(this);
+		}.bind(this));
 
 		console.log(this.field);
+	}
+
+	set rating(value){
+		this._rating = value;
+		this.headerTitle.innerHTML = 'Score: ' + value;
+	}
+	get rating(){
+		return this._rating;
+	}
+
+	addRating(value){
+		this.rating += value;
 	}
 
 	spawnUnit(){
@@ -64,8 +75,8 @@ class Game{
 		}else{
 			alert('You lose!');
 		}
-	
 	}
+
 
 
 	isLastKey(key){
