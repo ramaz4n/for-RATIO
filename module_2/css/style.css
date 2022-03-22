@@ -31,12 +31,11 @@ html, body{
 
 
 .game{
-	margin: 0 auto;
 	width: 100%;
 	height: 100%;
 	display: flex;
-	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 }
 .header__title{
 	font-size: 6vmin;
@@ -75,6 +74,20 @@ html, body{
 	color: rgb(36, 12, 12);
 }
 
+
+@keyframes hide{
+	from { opacity: 1;}
+	to { opacity: 0;}
+}
+.animate{
+	position: absolute;
+	transition: left 0.7s, top 0.7s;
+	animation-name: hide;
+	animation-duration: 0.5s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
 .cell[data-bg = "2"]{
 	background-color: rgb(226, 238, 231);
 }
@@ -91,7 +104,7 @@ html, body{
 	background-color: rgb(24, 155, 78);
 }
 .cell[data-bg = "64"]{
-	background-color: rgb(240, 227, 186);
+	background-color: rgb(39, 94, 34);
 }
 .cell[data-bg = "128"]{
 	background-color: rgb(212, 159, 97);
@@ -100,11 +113,85 @@ html, body{
 	background-color: rgb(199, 170, 7);
 }
 .cell[data-bg = "512"]{
-	background-color: rgb(172, 113, 3);
+	background-color: rgb(155, 103, 6);
 }
 .cell[data-bg = "1024"]{
 	background-color: rgb(211, 76, 22);
 }
 .cell[data-bg = "2048"]{
 	background-color: rgb(233, 10, 10);
+}
+
+
+.wrapper-btn{
+	position: relative;
+	margin-left: 100px;
+	max-width: 300px;
+}
+.right{
+	position: absolute;
+	right: -120px;
+}
+.left{
+	position: absolute;
+	left: -60px;
+}
+.top{
+	position: absolute;
+	top: -40px;
+}
+.down{
+	position: absolute;
+	bottom: -80px;
+}
+.control-btn{
+	width: 60px;
+	height: 40px;
+	border-radius: 10px;
+	background-color: bisque;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: rgb(54, 54, 54);
+	font-size: 20px;
+}
+.control-btn:hover{
+	background-color: rgb(245, 205, 156);
+	color: rgb(250, 255, 253);
+	cursor: pointer;
+}
+
+.modal-window{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 500px;
+	height: 200px;
+	border-radius: 30px;
+	background-color: bisque;
+	color: rgb(25, 73, 57);
+	z-index: 10;
+	text-align: center;
+}
+.close-btn{
+	position: relative;
+	top: 15px;
+	right: -430px;
+	width: 50px;
+	height: 25px;
+	background-color: #fff;
+	color: rgb(189, 8, 8);
+	font-weight: bold;
+	border-radius:5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+.modal-window-text{
+	display: block;
+	margin-top: 40px;
+	font-size: 50px;
+	font-weight: bold;
 }

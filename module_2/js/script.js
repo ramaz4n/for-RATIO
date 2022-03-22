@@ -7,3 +7,4 @@ function getRandomInt(min, max){
 //start.addEventListener('click',function(){
 	let game = new Game(document.body, 5);
 //})
+

@@ -6,9 +6,13 @@ class Game{
 		gameFieldElement.className = 'game';
 		parentElement.appendChild(gameFieldElement);
 
+		let headerFieldWrapper = document.createElement('div');
+		headerFieldWrapper.className = '';
+		gameFieldElement.appendChild(headerFieldWrapper);
+
 		this.headerElement = document.createElement('div');
 		this.headerElement.className = 'header';
-		gameFieldElement.appendChild(this.headerElement);
+		headerFieldWrapper.appendChild(this.headerElement);
 
 		this.headerTitle = document.createElement('p');
 		this.headerTitle.className = 'header__title';
@@ -19,7 +23,7 @@ class Game{
 
 		let fieldElement = document.createElement('div');
 		fieldElement.className = 'field';
-		gameFieldElement.appendChild(fieldElement);
+		headerFieldWrapper.appendChild(fieldElement);
 
 		this.field = [];
 
@@ -46,7 +50,47 @@ class Game{
 			}
 		}.bind(this));
 
-		console.log(this.field);
+
+
+		let wrapperForBtn = document.createElement('div');
+		let rightBtn = document.createElement('div');
+		let leftBtn = document.createElement('div');
+		let topBtn = document.createElement('div');
+		let downBtn = document.createElement('div');
+
+		wrapperForBtn.className = 'wrapper-btn';
+		rightBtn.className = 'control-btn right';
+		leftBtn.className = 'control-btn left';
+		topBtn.className = 'control-btn top';
+		downBtn.className = 'control-btn down';
+
+		rightBtn.innerHTML = '→';
+		leftBtn.innerHTML = '←';
+		topBtn.innerHTML = '↑';
+		downBtn.innerHTML = '↓';
+
+		wrapperForBtn.appendChild(rightBtn);
+		wrapperForBtn.appendChild(leftBtn);
+		wrapperForBtn.appendChild(topBtn);
+		wrapperForBtn.appendChild(downBtn);
+		gameFieldElement.appendChild(wrapperForBtn);
+
+		rightBtn.addEventListener("click", function() {
+			this.moveRight();
+		}.bind(this))
+
+		leftBtn.addEventListener("click", function() {
+			this.moveLeft();
+		}.bind(this))
+
+		topBtn.addEventListener("click", function() {
+			this.moveUp();
+		}.bind(this))
+
+		downBtn.addEventListener("click", function() {
+			this.moveDown();
+		}.bind(this))
+
 	}
 
 	set rating(value){
@@ -234,5 +278,9 @@ class Game{
 			this.spawnUnit();
 		}
 	}
+
+	
 }
+
+
 
